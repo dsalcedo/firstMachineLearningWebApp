@@ -1,0 +1,21 @@
+{
+  "name": "first-ml-app",
+  "version": "1.0.0",
+  "description": "This is my first app of an Machine Learning App",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "start": "node server"
+  },
+  "keywords": [
+    "machine",
+    "learning"
+  ],
+  "author": "malopezp.91",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "ml-regression": "^4.2.0"
+  }
+}

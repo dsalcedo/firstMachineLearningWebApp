@@ -1,0 +1,99 @@
+<!DOCTYPE>
+<html ng-app="myApp">
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+
+    <title>
+        Machine Learning App
+    </title>
+</head>
+
+<body>
+    <div class="container" ng-controller="mainCtrl">
+        <h1> New Machine Learning App! </h1>
+
+        <button class='btn btn-primary' ng-click="retrieveModel()">Retrieve Model</button>
+
+        <h1>Input Values:</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Input</th>
+                    <th>Output</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="number" class="form-control" ng-model='newPair.input'></td>
+                    <td><input type="number" class="form-control" ng-model='newPair.output'></td>
+                    <td><button class="btn btn-primary" ng-click="addNewPair()">Add New Pair</button></td>
+                </tr>
+                <tr ng-repeat="pair in userData">
+                    <td>{{pair.input}}</td>
+                    <td>{{pair.output}}</td>
+                </tr>
+            </tbody>
+
+        </table>
+
+        <!--<h1>Generated Model:</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Slope</th>
+                    <th>Intercept</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{model.slope}}</td>
+                    <td>{{model.intercept}}</td>
+                </tr>
+            </tbody>
+        </table>-->
+
+        <div ng-show='displayModelEquation'>
+            <h1>Therefore, our model is given by:</h1>
+            <h2>f(x) = {{model.slope}}x + {{model.intercept}}</h2>
+
+            <h1>Predict using Model</h1>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Enter value:</th>
+                        <th>Predicted value:</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="number" class="form-control" ng-model='predictedPair.input'></td>
+                        <td><input type="number" class="form-control" ng-model='predictedPair.output' disabled></td>
+                        <td><button class="btn btn-primary" ng-click="predict()">Predict!</button></td>
+                    </tr>
+                    <tr ng-repeat="pair in predictedData">
+                        <td>{{pair.input}}</td>
+                        <td>{{pair.output}}</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+    </div>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js'></script>
+    <script src='controllers/controller.js'></script>
+
+</body>
+
+</html>
