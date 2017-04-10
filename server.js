@@ -7,7 +7,12 @@ var app = express();
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 
-app.listen(3000);
+
+var port = process.env.PORT || 8000;
+
+app.listen(port, function() {
+    console.log("App is running on port " + port);
+});
 
 let inputs = [80, 60, 10, 20, 30];
 let outputs = [20, 40, 30, 50, 60];
@@ -35,4 +40,4 @@ app.post('/regressionModel/', function(req, res){
 
 //console.log(regression);
 
-console.log('Server running on port 3000');
+//console.log('Server running on port 3000');
