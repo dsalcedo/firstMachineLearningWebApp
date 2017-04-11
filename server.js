@@ -27,8 +27,8 @@ app.post('/regressionModel/', function(req, res){
 
     for (index in dataSentFromBrowser)
     {
-        inputs.push(dataSentFromBrowser[index].input);
-        outputs.push(dataSentFromBrowser[index].output);
+        inputs.push(dataSentFromBrowser[index].x);
+        outputs.push(dataSentFromBrowser[index].y);
     }
 
     var requestedModel = new SLR(inputs, outputs);

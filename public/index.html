@@ -10,34 +10,34 @@
         crossorigin="anonymous">
 
     <title>
-        Machine Learning App
+        Linear Regresion App
     </title>
 </head>
 
 <body>
     <div class="container" ng-controller="mainCtrl">
-        <h1> New Machine Learning App! </h1>
+        <h1> Linear Regression </h1>
 
         <button class='btn btn-primary' ng-click="retrieveModel()">Retrieve Model</button>
 
-        <h1>Input Values:</h1>
+        <h1>Training Set:</h1>
         <table class="table">
             <thead>
                 <tr>
-                    <th>Input</th>
-                    <th>Output</th>
+                    <th>x</th>
+                    <th>y</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td><input type="number" class="form-control" ng-model='newPair.input'></td>
-                    <td><input type="number" class="form-control" ng-model='newPair.output'></td>
+                    <td><input type="number" class="form-control" ng-model='newPair.x'></td>
+                    <td><input type="number" class="form-control" ng-model='newPair.y'></td>
                     <td><button class="btn btn-primary" ng-click="addNewPair()">Add New Pair</button></td>
                 </tr>
                 <tr ng-repeat="pair in userData">
-                    <td>{{pair.input}}</td>
-                    <td>{{pair.output}}</td>
+                    <td>{{pair.x}}</td>
+                    <td>{{pair.y}}</td>
                 </tr>
             </tbody>
 
@@ -60,27 +60,27 @@
         </table>-->
 
         <div ng-show='displayModelEquation'>
-            <h1>Therefore, our model is given by:</h1>
+            <h1>Model is given by:</h1>
             <h2>f(x) = {{model.slope}}x + {{model.intercept}}</h2>
 
-            <h1>Predict using Model</h1>
+            <h1>Predictions</h1>
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Enter value:</th>
-                        <th>Predicted value:</th>
+                        <th>x</th>
+                        <th>Predicted y</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><input type="number" class="form-control" ng-model='predictedPair.input'></td>
-                        <td><input type="number" class="form-control" ng-model='predictedPair.output' disabled></td>
+                        <td><input type="number" class="form-control" ng-model='predictedPair.x'></td>
+                        <td><input type="number" class="form-control" ng-model='predictedPair.y' disabled></td>
                         <td><button class="btn btn-primary" ng-click="predict()">Predict!</button></td>
                     </tr>
                     <tr ng-repeat="pair in predictedData">
-                        <td>{{pair.input}}</td>
-                        <td>{{pair.output}}</td>
+                        <td>{{pair.x}}</td>
+                        <td>{{pair.y}}</td>
                     </tr>
 
                 </tbody>

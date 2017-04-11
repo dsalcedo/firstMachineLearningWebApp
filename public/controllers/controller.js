@@ -24,7 +24,7 @@ function mainCtrl($scope, $http) {
 
     $scope.predict = function () {
         console.log('Prediction called!');
-        $scope.predictedPair.output = ($scope.model.slope * $scope.predictedPair.input) + $scope.model.intercept;
+        $scope.predictedPair.y = ($scope.model.slope * $scope.predictedPair.x) + $scope.model.intercept;
         console.log($scope.predictedPair);
         $scope.predictedData.push($scope.predictedPair);
         $scope.predictedPair = {};
