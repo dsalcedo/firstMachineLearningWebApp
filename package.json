@@ -14,7 +14,9 @@
   "author": "malopezp.91",
   "license": "MIT",
   "dependencies": {
+    "angular": "^1.6.4",
     "body-parser": "^1.17.1",
+    "chart.js": "^2.5.0",
     "express": "^4.15.2",
     "ml-regression": "^4.2.0"
   }
